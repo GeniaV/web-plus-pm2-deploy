@@ -15,15 +15,19 @@ mongoose.connect(DB_ADDRESS);
 
 // Только для локальных тестов. Не используйте это в продакшене
 // app.use(cors())
+
+const cors = require('cors');
+
+app.use(cors({
+  origin: [
+    'https:/mesto.students.nomoredomains.work',
+    'http:/mesto.students.nomoredomains.work',
+  ],
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
 
 app.use(routes);
 app.use(errors());

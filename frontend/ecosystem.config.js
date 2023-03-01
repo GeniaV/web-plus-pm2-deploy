@@ -6,8 +6,8 @@ const {
 
 module.exports = {
   apps: [{
-    name: 'api-service',
-    script: './dist/app.js',
+    name: 'frontend',
+    script: './build/index.html',
   }],
 
   // Настройка деплоя
