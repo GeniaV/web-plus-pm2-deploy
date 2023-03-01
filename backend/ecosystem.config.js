@@ -6,7 +6,7 @@ const {
 
 module.exports = {
   apps: [{
-    name: 'api-service',
+    name: 'backend',
     script: './dist/app.js',
   }],
 
@@ -18,7 +18,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: DEPLOY_REPO,
       path: DEPLOY_PATH,
-      'pre-deploy': `cd ~/web-plus-pm2-deploy/ && git pull origin develop && pm2 restart app && scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
+      'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
       'post-deploy': 'npm i && npm run build && pm2 restart ecosystem.config.js',
     },
   },
