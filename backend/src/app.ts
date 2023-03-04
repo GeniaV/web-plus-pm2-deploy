@@ -15,9 +15,20 @@ mongoose.connect(DB_ADDRESS);
 
 // Только для локальных тестов. Не используйте это в продакшене
 // app.use(cors())
+
+const cors = require('cors');
+
+app.use(cors({
+  origin: [
+    'https:/mesto.students.nomoredomains.work',
+    'http:/mesto.students.nomoredomains.work',
+  ],
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 app.use(routes);
 app.use(errors());
 app.use(errorHandler);
