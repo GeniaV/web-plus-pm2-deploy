@@ -20,8 +20,8 @@ const cors = require('cors');
 
 app.use(cors({
   origin: [
-    'https:/mesto.students.nomoredomains.work',
-    'http:/mesto.students.nomoredomains.work',
+    'https://mesto.students.nomoredomains.work',
+    'http://mesto.students.nomoredomains.work',
   ],
 }));
 
